@@ -1576,5 +1576,36 @@ const a=JSON.parse(document.getElementById("wp-emoji-settings").textContent),o=(
   Lihat Proposal <span style="color:#DAA520;">→</span>
 </a>
 <footer style="background:#1a1a1a;color:#aaa;text-align:center;padding:2.5rem 1rem 3.5rem;margin-top:3rem;"><p style="margin-bottom:0.5rem;"><strong style="color:#DAA520;">STIH Habaring Hurung Sampit</strong></p><p>Jl. H.M. Arsyad, Sampit, Kotawaringin Timur</p><p style="margin-top:1rem;">© 2025 — Demo oleh <a href="https://avathur.id" style="color:#DAA520;">WAKi</a></p></footer>
+<script>
+/* WAKi DOM Fix — runs after Elementor */
+window.addEventListener('load', function() {
+  setTimeout(function() {
+    // 1. Hide all X close buttons
+    document.querySelectorAll('.eicon-close, .eicon-close-circle, [class*="eicon-close"], [aria-label="Close"]').forEach(function(el) {
+      el.style.display = 'none';
+    });
+    
+    // 2. Make social icons visible
+    document.querySelectorAll('.elementor-screen-only').forEach(function(el) {
+      el.style.clip = 'auto';
+      el.style.position = 'static';
+      el.style.width = '40px';
+      el.style.height = '40px';
+      el.style.display = 'inline-flex';
+      el.style.alignItems = 'center';
+      el.style.justifyContent = 'center';
+      el.style.background = 'rgba(255,255,255,0.15)';
+      el.style.borderRadius = '50%';
+      el.style.padding = '10px';
+      el.style.margin = '5px';
+    });
+    
+    // 3. Fix hamburger menu color to white
+    document.querySelectorAll('.elementor-menu-toggle i, .eicon-menu-bar, [class*="menu-toggle"]').forEach(function(el) {
+      el.style.color = 'white';
+    });
+  }, 500);
+});
+</script>
 </body>
 </html>
